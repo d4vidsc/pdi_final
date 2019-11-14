@@ -18,7 +18,7 @@ cols = 800
 # mouse callback function
 def draw_circle(event,x,y,flags,param):
     global ix,iy,drawing,count,pontos
-    global maskframe, img, maskara, flagDraw, flagErase, raio
+    global maskframe, img, maskara, flagDraw, raio
 
     if event == cv2.EVENT_LBUTTONDOWN:
         drawing = True
@@ -28,13 +28,13 @@ def draw_circle(event,x,y,flags,param):
     elif event == cv2.EVENT_MOUSEMOVE:
         if drawing == True:
             if (flagDraw):
-                cv2.circle(img,(x,y),raio,(255,0,0),-1)
+                cv2.circle(img,(x,y),raio,(255,255,255),-1)
 
     elif event == cv2.EVENT_LBUTTONUP:
         count += 1  
         drawing = False
         if (flagDraw):
-            cv2.circle(img,(x,y),3,(255,0,0),-1)
+            cv2.circle(img,(x,y),3,(255,255,255),-1)
 
 cv2.namedWindow('mascara')
 cv2.setMouseCallback('mascara',draw_circle)
@@ -51,6 +51,9 @@ while(1):
         M = cv2.getPerspectiveTransform(pts1,pts2)
         perspectiva = cv2.warpPerspective(maskframe,M,(cols,rows))
         cv2.imwrite('perspectiva.jpg',perspectiva)
+        f = open("pontosPerspectiva.txt", "w+")
+        f.write(str(pontos))
+        f.close()
         break
     if k == 27:
         break
