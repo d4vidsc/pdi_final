@@ -11,8 +11,7 @@ from ROI import ROI
 def VerifyTA (perspectiva):
     perspectivaGray = cv2.cvtColor(perspectiva, cv2.COLOR_BGR2GRAY)
 
-    escaninho = np.loadtxt('Files/Status.txt')
-
+    escaninhoAtual = np.zeros((4,8))
     #print(escaninho)
 
     #tipo_str = ["cv2.THRESH_BINARY", "cv2.THRESH_BINARY_INV", "cv2.THRESH_TRUNC",
@@ -25,10 +24,10 @@ def VerifyTA (perspectiva):
     '''img_limiar = cv2.adaptiveThreshold(perspectiva,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
                 cv2.THRESH_BINARY,11,2)'''
 
-    ROI(img_limiar,img_limiarRGB,escaninho)
-    cv2.imshow('Linearizada',img_limiarRGB)
+    ROI(img_limiar,img_limiarRGB,escaninhoAtual)
+    #cv2.imshow('Linearizada',img_limiarRGB)
     #np.savetxt('Status2.txt',escaninho)
     #vai = int(np.loadtxt('Status2.txt').all())
-    print(escaninho)
+    return escaninhoAtual
 #print(escaninho)
 

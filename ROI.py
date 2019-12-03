@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #perspectiva = cv2.imread('Imagens/perspectiva.png')
-def ROI (perspectivaGRAY,perspectiva,escaninho):
+def ROI (perspectivaGRAY,perspectiva,escaninhoAtual):
     color = (255,0,0)
     tk = 2
     for x in range (8):
@@ -19,10 +19,10 @@ def ROI (perspectivaGRAY,perspectiva,escaninho):
             #statusEscaninho = np.sum(imCrop)
             #print(statusEscaninho/255)
             if (np.sum(imCrop)/255 > 30):
-                escaninho[y,x] = 1
+                escaninhoAtual[y,x] = 1
 
             else:
-                escaninho[y,x] = 0
+                escaninhoAtual[y,x] = 0
 
             
 #cv2.imshow('ROI',perspectiva)
