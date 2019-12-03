@@ -2,15 +2,8 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import math
-perspectiva = cv2.imread('Imagens/perspectivaImagemFind0_1_7.png')
-cv2.imshow('Original',perspectiva)
 
 
-#Parametros para calibrar o Canny e Hough quando a camera for fixada
-'''minVal = 50
-maxVal = 120
-minLineLength = 800
-maxLineGap = 0'''        
     
 def ValidationImg(perspectiva): #função se valida se o escaninho esta obstruido ou não
 
@@ -18,12 +11,23 @@ def ValidationImg(perspectiva): #função se valida se o escaninho esta obstruid
     linhas = cv2.HoughLines(bordas, 1, np.pi / 180, 240, 800, 0)
     bordas_copia = cv2.cvtColor(bordas, cv2.COLOR_GRAY2BGR)
     if(linhas.shape[0] >= 10): #valor de calibração
-        return 1,linhas,bordas_copia,bordas
+        return 1#,linhas,bordas_copia,bordas
     else:
-        return 0,linhas,bordas_copia,bordas
+        return 0#,linhas,bordas_copia,bordas
 
 
-podeSeguir,linhas,bordas_copia,bordas = ValidationImg(perspectiva)
+'''perspectiva = cv2.imread('Imagens/perspectivaTeste.jpg')
+cv2.imshow('Original my eggs',perspectiva)
+
+
+#Parametros para calibrar o Canny e Hough quando a camera for fixada
+#minVal = 50
+#maxVal = 120
+#minLineLength = 800
+#maxLineGap = 0      
+
+
+podeSeguir = ValidationImg(perspectiva)
 print(podeSeguir)
 for i in range(0, len(linhas)):
     rho = linhas[i][0][0]
@@ -38,5 +42,9 @@ for i in range(0, len(linhas)):
 
 print(linhas.shape[0])
 cv2.imshow('Bordas',bordas)
-cv2.imshow('Linhas',bordas_copia)
+cv2.imshow('Linhas',bordas_copia)'''
+
+
+
+
 

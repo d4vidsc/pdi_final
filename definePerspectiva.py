@@ -8,7 +8,7 @@ def definePerspectiva():
     ix,iy = -1,-1
     pontos = np.zeros((4,2))
     count = 0
-    maskframe = cv2.imread('fotos_escaninho/escaninho0.jpeg')
+    maskframe = cv2.imread('Imagens/ImagemControle0.jpeg')
     maskara =   maskframe.copy()
     img = maskframe.copy()
     img[:,:,:] = 0
@@ -53,8 +53,8 @@ def definePerspectiva():
             pts2 = np.float32([[0,0],[cols,0],[cols,rows],[0,rows]])
             M = cv2.getPerspectiveTransform(pts1,pts2)
             perspectiva = cv2.warpPerspective(maskframe,M,(cols,rows))
-            cv2.imwrite('perspectiva.jpg',perspectiva)
-            np.savetxt("pontosPerspectiva.txt", pontos)
+            cv2.imwrite('Imagens/perspectivaTeste.jpg',perspectiva)
+            np.savetxt("Files/pontosPerspectiva.txt", pontos)
 
             for x in range (8):
                 for y in range (4):
