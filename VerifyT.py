@@ -11,7 +11,7 @@ from ROI import ROI
 def VerifyTA (perspectiva):
     perspectivaGray = cv2.cvtColor(perspectiva, cv2.COLOR_BGR2GRAY)
 
-    escaninhoAtual = np.zeros((4,8))
+    escaninhoAtual = np.zeros((4,8),dtype=int)
     #print(escaninho)
 
     #tipo_str = ["cv2.THRESH_BINARY", "cv2.THRESH_BINARY_INV", "cv2.THRESH_TRUNC",

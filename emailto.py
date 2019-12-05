@@ -10,7 +10,7 @@ def emailto(x,y):
 	emails=f.read().split()
 	for i in range(0,len(emails)):
          emails[i]=emails[i].split(',')
-	print(emails)
+	#print(emails)
 	# conexão com os servidores do google
 	smtp_ssl_host = 'smtp.gmail.com'
 	smtp_ssl_port = 465
@@ -38,3 +38,7 @@ def emailto(x,y):
 	server.sendmail(from_addr, to_addrs, message.as_string())
 	server.quit()
 
+#0 0 0 0 0 0 0 0
+#0 0 0 0 0 0 0 0
+#0 0 0 0 0 0 0 0
+#0 0 0 0 0 0 0 0

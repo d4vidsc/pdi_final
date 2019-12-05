@@ -1,7 +1,7 @@
 import numpy as np
 import emailto
 
-def risingegde(m1,m2):
+def risingedge(m1,m2):
     m = np.bitwise_xor(m1,m2)
     x = 0
     y = 0

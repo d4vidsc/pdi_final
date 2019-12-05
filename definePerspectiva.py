@@ -8,7 +8,7 @@ def definePerspectiva():
     ix,iy = -1,-1
     pontos = np.zeros((4,2))
     count = 0
-    maskframe = cv2.imread('Imagens/ImagemControle0.jpeg')
+    maskframe = cv2.imread('Imagens/ImagemFind0_1_8.jpeg')
     maskara =   maskframe.copy()
     img = maskframe.copy()
     img[:,:,:] = 0
@@ -53,8 +53,8 @@ def definePerspectiva():
             pts2 = np.float32([[0,0],[cols,0],[cols,rows],[0,rows]])
             M = cv2.getPerspectiveTransform(pts1,pts2)
             perspectiva = cv2.warpPerspective(maskframe,M,(cols,rows))
-            cv2.imwrite('Imagens/perspectivaTeste.jpg',perspectiva)
-            np.savetxt("Files/pontosPerspectiva.txt", pontos)
+            cv2.imwrite('Imagens/perspectivaTeste3.jpg',perspectiva)
+            np.savetxt("Files/pontosPerspectiva3.txt", pontos)
 
             for x in range (8):
                 for y in range (4):
@@ -62,7 +62,7 @@ def definePerspectiva():
                     #retangulos[(150*y+30):(150*y+120),(100*x+20):(100*x+70),:] = media[:3]
                     vetorMedias[i] = np.mean(media[:3])
                     i += 1
-            np.savetxt("mediasRef.txt", vetorMedias)
+            np.savetxt("mediasRef2.txt", vetorMedias)
             break
         if k == 27:
             break
